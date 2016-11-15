@@ -8,7 +8,7 @@ const app = express();
 
 //Initialize sendgrid with our API key
 const sg = require('sendgrid')('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');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const from_email = new helper.Email('APCSPIsTheBest@example.com');
 const subject = 'Wow sending emails is so easy';
