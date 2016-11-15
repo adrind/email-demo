@@ -47,14 +47,14 @@ app.post('/sendEmail', function(req, res, next) {
     //Uses the Sendgrid API to make a request
     sg.API(request, function(error, response) {
         //Sends the email and message back to the client in the response
-        res.send(`We sent ${data.email} this message: ${data.message}`);
+        res.send('We sent '+data.email+' this message: '+ data.message);
     });
 });
 
-app.listen(port, (err) => {
+app.listen(port, function (err) {
     if (err) {
         return console.log('something bad happened', err)
     }
 
-    console.log(`server is listening on ${port}`)
+    console.log('server is listening on' + port);
 })
