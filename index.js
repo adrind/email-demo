@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 
 //Not using this
 app.get('/', function(req, res, next) {
-    res.send('Hello friend!');
+    res.send('Hello world!');
 });
 
 app.post('/sendEmail', function(req, res, next) {
