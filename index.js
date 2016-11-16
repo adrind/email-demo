@@ -6,7 +6,9 @@ const helper = require('sendgrid').mail;
 //Initialize our app
 const app = express();
 
+//This API key is hidden in an environment file hosted by Heroku which deploys our app
 const SENDGRID_API_KEY = process.env.SENDGRID_KEY;
+
 //Initialize sendgrid with our API key
 const sg = require('sendgrid')(SENDGRID_API_KEY);
 const port = process.env.PORT || 3000;
@@ -27,11 +29,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-//Not using this
+//Get requests let you read data from the server
+//Here we are simply sending the client a string
 app.get('/', function(req, res, next) {
     res.send('Hello world!');
 });
 
+//Post requests allow you to send data to a server
+//They are often used to save data to a database
 app.post('/sendEmail', function(req, res, next) {
     const data = req.body;
 
@@ -58,4 +63,4 @@ app.listen(port, function (err) {
     }
 
     console.log('server is listening on' + port);
-})
+});
