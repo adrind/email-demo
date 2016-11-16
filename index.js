@@ -6,8 +6,9 @@ const helper = require('sendgrid').mail;
 //Initialize our app
 const app = express();
 
+const SENDGRID_API_KEY = process.env.SENDGRID_KEY;
 //Initialize sendgrid with our API key
-const sg = require('sendgrid')('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');
+const sg = require('sendgrid')(SENDGRID_API_KEY);
 const port = process.env.PORT || 3000;
 
 const from_email = new helper.Email('APCSPIsTheBest@example.com');
